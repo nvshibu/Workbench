@@ -1,11 +1,12 @@
 #include "vec.h"
 #include <cmath>
-#define NOTEST
+#define NoTEST
 
 short int vec::getDim() const
 { return dim; }
 
-vec::vec() {
+vec::vec() 
+{
 	dim = 3;
 	v = new double[dim];
 	if (!v) {
@@ -18,9 +19,9 @@ vec::vec() {
 		v[i]=0;
 	}
 
-#ifdef TEST
+	#ifdef TEST
 	cout<<"In default constructor."<<endl;
-#endif
+	#endif
 }
 
 vec::vec(int d) 
@@ -36,9 +37,9 @@ vec::vec(int d)
 	{
 		v[i]=0;
 	}
-#ifdef TEST
-	cout<<"In dimension constructor."<<endl;
-#endif
+	#ifdef TEST
+		cout<<"In dimension constructor."<<endl;
+	#endif
 }
 
 vec::vec(const vec& b) 
