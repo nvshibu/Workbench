@@ -19,7 +19,7 @@ matrix::matrix()
 	}
 	for(i=0;i<row;i++)
 	{
-		vobj[i]=vec(col);
+		setVecDim(&vobj[i],col);
 	}
 }
 
@@ -39,7 +39,7 @@ matrix::matrix(int r1, int c1)
 	}
 	for(i=0;i<row;i++)
 	{
-		vobj[i]=vec(col);
+		setVecDim(&vobj[i],col);
 	}
 }
 matrix::matrix(const matrix& b) 
@@ -54,7 +54,7 @@ matrix::matrix(const matrix& b)
 	short int i;
 	for (i=0; i<row; i++)
 	{
-		vobj[i] = vec(col);
+		setVecDim(&vobj[i],col);
 	}
 	#ifdef TEST2
 		cout<<"In matrix copy constructor."<<endl;
@@ -76,6 +76,18 @@ matrix::~matrix()
 }
 
 /*------------------------I/O-------------------------------------*/
+void matrix::setVecDim(vec* vobj,int d)
+{
+	vobj->dim=d;
+	vobj = new vec[d];
+	if (!vobj) 
+	{
+		cerr<<"Fatal error: Memory reservation failed."<<endl;
+		abort();
+	}
+}
+
+
 void matrix::input() 
 {
 	short int i;

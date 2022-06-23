@@ -1,6 +1,6 @@
 #include "vec.h"
 #include <cmath>
-#define NoTEST
+#define TEST
 
 short int vec::getDim() const
 { return dim; }

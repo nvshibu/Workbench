@@ -24,6 +24,7 @@ public:
 	~matrix(); // destructor
 	void input();
 	void output() const;
+	void setVecDim(vec* vob,int d);
 	// matrix transpose() const;
 	// int* getDim() const;
 	// // Operators:
