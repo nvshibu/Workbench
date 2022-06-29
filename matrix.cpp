@@ -118,7 +118,7 @@ matrix matrix::operator +(matrix const &b) const
 		abort();
 	}
 	short int i;
-	matrix res(b);
+	matrix res(b.row,b.col);
 	for (i=0; i<row; i++)
 		res.vobj[i] = vobj[i]+b.vobj[i];
 	return res;
@@ -132,7 +132,7 @@ matrix matrix::operator -(matrix const &b) const
 		abort();
 	}
 	short int i;
-	matrix res(b);
+	matrix res(b.row,b.col);
 	for (i=0; i<row; i++)
 		res.vobj[i] = vobj[i]-b.vobj[i];
 	return res;
