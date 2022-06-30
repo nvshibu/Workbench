@@ -16,8 +16,8 @@ class matrix
 {
 	short int row;
     short int col;
-	vec **vobj;
-	vec obj3;
+	vec **vobj; //double pointer to store array of pointers to vector object
+	vec obj3; // an object to store intermediate results of addition / subtraction.
 public:
 	matrix(); // default constructor
 	matrix(int row,int col);

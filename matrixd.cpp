@@ -4,14 +4,14 @@
 #define NoTEST2
 
 //Default Constructor
-matrix::matrix() 
+matrix::matrix() //default constructor for 3 rows and 3 columns
 {
 	row = 3;
 	col = 3;
 	short int i;
 	short int j;
 
-	vobj = new vec*[row];
+	vobj = new vec*[row];//creating an array of vector pointers
 	if (!vobj) 
 	{
 		cerr<<"Fatal error: Memory reservation failed."<<endl;
@@ -19,7 +19,7 @@ matrix::matrix()
 	}
 	for(i=0;i<row;i++)
 	{
-		vobj[i]=new vec(col);
+		vobj[i]=new vec(col);//Each pointer in array pointing to vector object
 	}
 }
 
@@ -31,7 +31,7 @@ matrix::matrix(int r1, int c1)
 	short int i;
 	short int j;
 
-	vobj = new vec*[row];
+	vobj = new vec*[row];//creating an array of vector pointers
 	if (!vobj) 
 	{
 		cerr<<"Fatal error: Memory reservation failed."<<endl;
@@ -39,11 +39,11 @@ matrix::matrix(int r1, int c1)
 	}
 	for(i=0;i<row;i++)
 	{
-		vobj[i]=new vec(col);
+		vobj[i]=new vec(col);//Each pointer in array pointing to vector object
 	}
-	setVecDim(&obj3,col);
+	setVecDim(&obj3,col); //setting the no of columns of vector object to value of col
 }
-matrix::matrix(const matrix& b) 
+matrix::matrix(const matrix& b) //copy constructor definition is not used in this program
 {
 	row = b.row;
 	col = b.col;
@@ -68,7 +68,7 @@ matrix::~matrix()
 	short int i;
 	for(i=0;i<row;i++)
 	{
-		delete[] vobj[i];
+		delete[] vobj[i];//deleting each pointer in array of vector pointers
 	}
 	delete[] vobj;
 	#ifdef TEST2
@@ -77,7 +77,7 @@ matrix::~matrix()
 }
 
 /*------------------------I/O-------------------------------------*/
-void matrix::setVecDim(vec* vobj,int d)
+void matrix::setVecDim(vec* vobj,int d) //for setting no of columns in obj3
 {
 	vobj->dim=d;
 	vobj = new vec[d];
@@ -95,7 +95,7 @@ void matrix::input()
 	short int j;
 	for (i=0; i<row; i++)
 	{
-		vobj[i]->input();
+		vobj[i]->input(); //array pointer calling member function
 	}	
 }
 
@@ -124,8 +124,8 @@ matrix matrix::operator +(matrix const& b) const
 	{
 		vec* obj1=vobj[i];
 		vec* obj2=b.vobj[i];
-		res.obj3 = (*obj1)+(*obj2);
-		res.vobj[i]=&res.obj3;
+		res.obj3 = (*obj1)+(*obj2); //using pointer to objects and storing result in obj3
+		res.vobj[i]=&res.obj3; //obj3 is a member of matrix class. So will not get destroyed
 	}
 	return res;
 }
