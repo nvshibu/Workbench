@@ -18,25 +18,34 @@ class ListElement
 	ListElement *prev;
 public:
 	ListElement();
-	void print() const;
-	void input();
+	// void input();
 	ListElement * getNext() const;
-	ListElement * getPrev() const;
+	// ListElement * getPrev() const;
 	friend class List;
 };
 
 
+class Data:public ListElement
+{
+	string value;
+public:
+	Data(string value);
+	string getValue() const;
+
+	//virtual add(ListElement *neu, ListElement *where)
+};
+
 class List 
 {
-	ListElement *start;
-	ListElement *end;
+	Data *start;
+	Data *end;
 public:
 	List();
-	~List();
-	void clear(); // Delete/Free all elements
+	//~List();
+	//void clear(); // Delete/Free all elements
 	void print() const; // output all elements.
-	void remove(ListElement *rem); // remove one element
-	void add(ListElement *neu, ListElement *whereto=0); // add a new one behind whereto
+	//void remove(ListElement *rem); // remove one element
+	//void add(ListElement *neu, ListElement *where); // add a new one behind whereto
 };
 
 

@@ -7,9 +7,14 @@
 //============================================================================
 
 #include <iostream>
+#include <string>
+
+#include "ListElement.cpp"
 using namespace std;
 
-int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+int main() 
+{
+	List dataList;
+	dataList.print();
 	return 0;
 }

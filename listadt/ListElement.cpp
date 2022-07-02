@@ -7,28 +7,74 @@
 
 #include "List.h"
 
+
+/*-----------------------ListElement------------------------*/
 ListElement::ListElement()
 {
 	next = prev = 0;
 }
 
-void ListElement::print() const
+// void ListElement::print() const
+// {
+// 	cout << "An element at address: "<<this<<endl;
+// }
+
+// void ListElement::input()
+// {
+// 	; // Nothing to do
+// }
+
+ListElement* ListElement::getNext() const
 {
-	cout << "An element at address: "<<this<<endl;
+ 	return next;
 }
 
-void ListElement::input()
+// ListElement* ListElement::getPrev() const
+// {
+// 	return prev;
+// }
+
+/*--------------------------------------------List-----------------------------------*/
+
+List::List()
 {
-	; // Nothing to do
+	start = new Data("start");
+	end = new Data("end");
+	start->next = end;
+	start->prev = NULL;
+	end->next = NULL;
+	end->prev = start;
+}
+void List::print() const
+{
+	Data* itr=start;
+	cout<<"The elements in the List are"<<endl;
+	while(itr!=NULL)
+	{
+		cout<<itr->getValue()<<"-->";
+		itr=(Data*) itr->getNext();
+	}
+	cout<<endl;
+
 }
 
-ListElement * ListElement::getNext() const
+
+
+/*-----------------------------------------DataList-------------------------------------*/
+
+Data::Data(string value)
 {
-	return next;
+	this->value=value;
 }
 
-ListElement * ListElement::getPrev() const
+string Data::getValue() const
 {
-	return prev;
+	return value;
 }
+
+
+
+
+
+
 
