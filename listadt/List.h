@@ -20,6 +20,10 @@ public:
 	ListElement();
 	// void input();
 	ListElement* getNext() const;
+	virtual string getValue() const
+	{
+		return "NULL";
+	}
 	// ListElement * getPrev() const;
 	friend class List;
 };
