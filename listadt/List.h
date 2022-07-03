@@ -57,7 +57,7 @@ public:
 	//~List();
 	//void clear(); // Delete/Free all elements
 	void print() const; // output all elements.
-	//void remove(ListElement *rem); // remove one element
+	void remove(ListElement *rem); // remove one element
 	void add(ListElement *neu, ListElement *where); // add a new one behind whereto
 	ListElement* getNode(string value) const;
 };

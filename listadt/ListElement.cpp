@@ -62,10 +62,9 @@ List::List()
 }
 void List::print() const
 {
-	cout<<"----------Printing in Forward order----------------------------------"<<endl;
+	cout<<"----------Printing by Traversing forward in doubly linked list------------------"<<endl;
 
 	Data* fitr=(Data*) start;
-	cout<<"The elements by traversing forward"<<endl;
 	while(fitr!=NULL)
 	{
 		if(fitr->getValue()=="end")
@@ -80,10 +79,9 @@ void List::print() const
 	}
 	cout<<endl;
 
-	cout<<"----------Printing in Reverse order----------------------------------"<<endl;
+	cout<<"----------Printing by Traversing backword in doubly linked list----------------------------------"<<endl;
 
 	Data* itr=(Data*) end;
-	cout<<"The elements by traversing backward"<<endl;
 	while(itr!=NULL)
 	{
 		if(itr->getValue()=="start")
@@ -132,6 +130,21 @@ void List::add(ListElement* neu,ListElement* where)
 	}
 }
 
+void List::remove(ListElement *rem)
+{
+	ListElement* itr = start;
+	while(itr!=NULL)
+	{
+		if(itr==rem)
+		{
+			itr->prev->next = rem->next;
+			itr->next->prev = rem->prev;
+			delete itr;
+			break;
+		}
+		itr= itr->next;
+	}
+}
 
 
 

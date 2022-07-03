@@ -63,6 +63,22 @@ int main()
 	dataList.print();
 	cout<<endl;
 
+/*---------------Removing element "hello" from the List-------------------*/
+	ListElement* rem = dataList.getNode("hello");
+	if(rem==NULL)
+	{
+		cout<<"Failed to find element to remove"<<endl;
+		abort();
+	}
+	dataList.remove(rem);
+	cout<<"After Removal of Element \"hello\" "<<endl;
+	dataList.print();
+	cout<<endl;
+
+
+
+
+
 
 	return 0;
 }
