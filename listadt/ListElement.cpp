@@ -53,8 +53,8 @@ string Data::getValue() const
 
 List::List()
 {
-	start = new Data("start");
-	end = new Data("end");
+	start = new ListElement();
+	end = new ListElement();
 	start->next = end;
 	start->prev = NULL;
 	end->next = NULL;
@@ -62,7 +62,7 @@ List::List()
 }
 void List::print() const
 {
-	Data* itr=start;
+	Data* itr=(Data*) start;
 	cout<<"The elements in the List are"<<endl;
 	while(itr!=NULL)
 	{
@@ -81,7 +81,7 @@ void List::print() const
 
 ListElement* List::getNode(string value) const
 {
-	Data* itr=start;
+	Data* itr=(Data*) start;
 	while(itr!=NULL)
 	{
 		if(itr->getValue()==value)

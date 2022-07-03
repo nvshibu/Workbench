@@ -20,11 +20,21 @@ public:
 	ListElement();
 	// void input();
 	ListElement* getNext() const;
+	// ListElement * getPrev() const;
+
+	/* This virtual function is binded when the pointer used is of type ListElement*  */
 	virtual string getValue() const
 	{
-		return "NULL";
+		if(this->next==NULL)
+		{
+			return "end";
+		}
+		else
+		{
+			return "start";
+		}
 	}
-	// ListElement * getPrev() const;
+	
 	friend class List;
 };
 
@@ -34,14 +44,14 @@ class Data:public ListElement
 	string value;
 public:
 	Data(string value);
-	string getValue() const;
-	//virtual add(ListElement *neu, ListElement *where)
+	string getValue() const; //This function is binded when the pointer used is of type Data*
+	
 };
 
 class List 
 {
-	Data *start;
-	Data *end;
+	ListElement *start;
+	ListElement *end;
 public:
 	List();
 	//~List();

@@ -49,6 +49,20 @@ int main()
 	dataList.print();
 	cout<<endl;
 
+/*---------------Addition new element "world" in the List-------------------*/
+	newdata = new Data("virtual");
+	where = dataList.getNode("hello");
+	if(where==NULL)
+	{
+		cout<<"Failed to find insertion location"<<endl;
+		abort();
+	}
+	neu = (ListElement*) newdata;
+	dataList.add(neu,where);
+	cout<<"After Addition of new Element ";
+	dataList.print();
+	cout<<endl;
+
 
 	return 0;
 }
