@@ -82,9 +82,24 @@ int main()
 	dataList.print();
 	cout<<endl;
 
+	cout<<"-----Adding new element \"Alice\" at the beginning-----"<<endl;
+	newdata = new Data("Alice");
+	neu = (ListElement*) newdata;
+	dataList.addafterhead(neu);
+	dataList.print();
+	cout<<endl;
 
+	cout<<"-----Adding new element \"wonderful\" before the end-----"<<endl;
+	newdata = new Data("wonderful");
+	neu = (ListElement*) newdata;
+	dataList.addbeforetail(neu);
+	dataList.print();
+	cout<<endl;
 
-
+	cout<<"-----Removing last element from the List-----"<<endl;
+	dataList.removelast();
+	dataList.print();
+	cout<<endl;
 
 
 	return 0;

@@ -130,6 +130,27 @@ void List::add(ListElement* neu,ListElement* where)
 	}
 }
 
+void List::addafterhead(ListElement* neu)
+{
+	neu->next = start->next;
+	start->next->prev = neu;
+	start->next = neu;
+	neu->prev = start;
+}
+
+void List::addbeforetail(ListElement* neu)
+{
+	ListElement* itr = start;
+	while(itr->next!=NULL)
+	{
+		itr= itr->next;
+	}
+	neu->next = itr;
+	itr->prev->next = neu;
+	neu->prev = itr->prev;
+	itr->prev = neu;
+}
+
 void List::remove(ListElement *rem)
 {
 	if(rem->getValue()=="start" || rem->getValue()=="end") //base cass function will be binded in run time if pointer is of type ListElement
@@ -138,7 +159,7 @@ void List::remove(ListElement *rem)
 	}
 	else
 	{
-			ListElement* itr = start;
+		ListElement* itr = start;
 		while(itr!=NULL)
 		{
 			if(itr==rem)
@@ -152,6 +173,19 @@ void List::remove(ListElement *rem)
 		}
 	}
 }
+
+void List::removelast()
+{
+	ListElement* itr = start;
+	while(itr->next->next!=NULL)
+	{
+		itr= itr->next;
+	}
+	itr->prev->next = itr->next;
+	itr->next->prev = itr->prev;
+	delete itr;
+}
+
 
 
 

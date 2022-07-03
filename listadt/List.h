@@ -59,6 +59,9 @@ public:
 	void print() const; // output all elements.
 	void remove(ListElement *rem); // remove one element
 	void add(ListElement *neu, ListElement *where); // add a new one behind whereto
+	void addafterhead(ListElement *neu);
+	void addbeforetail(ListElement *neu);
+	void removelast();
 	ListElement* getNode(string value) const;
 };
 
