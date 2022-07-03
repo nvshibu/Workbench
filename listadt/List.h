@@ -19,7 +19,7 @@ class ListElement
 public:
 	ListElement();
 	// void input();
-	ListElement * getNext() const;
+	ListElement* getNext() const;
 	// ListElement * getPrev() const;
 	friend class List;
 };
@@ -31,7 +31,6 @@ class Data:public ListElement
 public:
 	Data(string value);
 	string getValue() const;
-
 	//virtual add(ListElement *neu, ListElement *where)
 };
 
@@ -45,7 +44,8 @@ public:
 	//void clear(); // Delete/Free all elements
 	void print() const; // output all elements.
 	//void remove(ListElement *rem); // remove one element
-	//void add(ListElement *neu, ListElement *where); // add a new one behind whereto
+	void add(ListElement *neu, ListElement *where); // add a new one behind whereto
+	ListElement* getNode(string value) const;
 };
 
 

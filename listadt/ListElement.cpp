@@ -34,6 +34,21 @@ ListElement* ListElement::getNext() const
 // 	return prev;
 // }
 
+
+/*-----------------------------------------DataList-------------------------------------*/
+
+Data::Data(string value)
+{
+	this->value=value;
+}
+
+string Data::getValue() const
+{
+	return value;
+}
+
+
+
 /*--------------------------------------------List-----------------------------------*/
 
 List::List()
@@ -51,26 +66,52 @@ void List::print() const
 	cout<<"The elements in the List are"<<endl;
 	while(itr!=NULL)
 	{
-		cout<<itr->getValue()<<"-->";
+		if(itr->getValue()=="end")
+		{
+			cout<<itr->getValue();
+		}
+		else
+		{
+			cout<<itr->getValue()<<"-->";
+		}
 		itr=(Data*) itr->getNext();
 	}
 	cout<<endl;
-
 }
 
-
-
-/*-----------------------------------------DataList-------------------------------------*/
-
-Data::Data(string value)
+ListElement* List::getNode(string value) const
 {
-	this->value=value;
+	Data* itr=start;
+	while(itr!=NULL)
+	{
+		if(itr->getValue()==value)
+		{
+			return itr;
+		}
+		itr=(Data*) itr->getNext();
+	}
+	ListElement* where=(ListElement*) itr;
+	return where;
 }
 
-string Data::getValue() const
+void List::add(ListElement* neu,ListElement* where)
 {
-	return value;
+	ListElement* itr = start;
+	while(itr!=NULL)
+	{
+		if(itr==where)
+		{
+			neu->next=itr->next;
+			neu->prev=itr;
+			itr->next->prev=neu;
+			itr->next=neu;
+			break;
+		}
+		itr= itr->next;
+	}
 }
+
+
 
 
 
