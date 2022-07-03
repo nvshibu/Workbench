@@ -31,7 +31,7 @@ int main()
 	ListElement* neu;
 	neu = (ListElement*) newdata;
 	dataList.add(neu,where);
-	cout<<"After Addition of new Element ";
+	cout<<"After Addition of new Element "<<endl;
 	dataList.print();
 	cout<<endl;
 
@@ -45,11 +45,11 @@ int main()
 	}
 	neu = (ListElement*) newdata;
 	dataList.add(neu,where);
-	cout<<"After Addition of new Element ";
+	cout<<"After Addition of new Element "<<endl;
 	dataList.print();
 	cout<<endl;
 
-/*---------------Addition new element "world" in the List-------------------*/
+/*---------------Addition new element "virtual" in the List-------------------*/
 	newdata = new Data("virtual");
 	where = dataList.getNode("hello");
 	if(where==NULL)
@@ -59,7 +59,7 @@ int main()
 	}
 	neu = (ListElement*) newdata;
 	dataList.add(neu,where);
-	cout<<"After Addition of new Element ";
+	cout<<"After Addition of new Element "<<endl;
 	dataList.print();
 	cout<<endl;
 

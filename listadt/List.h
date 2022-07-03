@@ -20,7 +20,7 @@ public:
 	ListElement();
 	// void input();
 	ListElement* getNext() const;
-	// ListElement * getPrev() const;
+	ListElement * getPrev() const;
 
 	/* This virtual function is binded when the pointer used is of type ListElement*  */
 	virtual string getValue() const

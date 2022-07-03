@@ -29,10 +29,10 @@ ListElement* ListElement::getNext() const
  	return next;
 }
 
-// ListElement* ListElement::getPrev() const
-// {
-// 	return prev;
-// }
+ListElement* ListElement::getPrev() const
+{
+	return prev;
+}
 
 
 /*-----------------------------------------DataList-------------------------------------*/
@@ -62,21 +62,42 @@ List::List()
 }
 void List::print() const
 {
-	Data* itr=(Data*) start;
-	cout<<"The elements in the List are"<<endl;
+	cout<<"----------Printing in Forward order----------------------------------"<<endl;
+
+	Data* fitr=(Data*) start;
+	cout<<"The elements by traversing forward"<<endl;
+	while(fitr!=NULL)
+	{
+		if(fitr->getValue()=="end")
+		{
+			cout<<fitr->getValue();
+		}
+		else
+		{
+			cout<<fitr->getValue()<<"-->";
+		}
+		fitr=(Data*) fitr->getNext();
+	}
+	cout<<endl;
+
+	cout<<"----------Printing in Reverse order----------------------------------"<<endl;
+
+	Data* itr=(Data*) end;
+	cout<<"The elements by traversing backward"<<endl;
 	while(itr!=NULL)
 	{
-		if(itr->getValue()=="end")
+		if(itr->getValue()=="start")
 		{
 			cout<<itr->getValue();
 		}
 		else
 		{
-			cout<<itr->getValue()<<"-->";
+			cout<<itr->getValue()<<"<--";
 		}
-		itr=(Data*) itr->getNext();
+		itr=(Data*) itr->getPrev();
 	}
 	cout<<endl;
+
 }
 
 ListElement* List::getNode(string value) const
