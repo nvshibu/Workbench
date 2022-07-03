@@ -62,12 +62,12 @@ List::List()
 }
 void List::print() const
 {
-	cout<<"----------Printing by Traversing forward in doubly linked list------------------"<<endl;
+	cout<<"Forward Traversal  ----->\t";
 
-	Data* fitr=(Data*) start;
+	Data* fitr=(Data*) start; //upcasting ListElement pointer to Data class pointer to access values
 	while(fitr!=NULL)
 	{
-		if(fitr->getValue()=="end")
+		if(fitr->getValue()=="end") //runtime binding happens altering between ListElement class and Data class
 		{
 			cout<<fitr->getValue();
 		}
@@ -79,7 +79,7 @@ void List::print() const
 	}
 	cout<<endl;
 
-	cout<<"----------Printing by Traversing backword in doubly linked list----------------------------------"<<endl;
+	cout<<"Backward Traversal ----->\t";
 
 	Data* itr=(Data*) end;
 	while(itr!=NULL)
@@ -100,16 +100,16 @@ void List::print() const
 
 ListElement* List::getNode(string value) const
 {
-	Data* itr=(Data*) start;
+	Data* itr=(Data*) start; //upcasting ListElement pointer to Data class pointer to access values
 	while(itr!=NULL)
 	{
 		if(itr->getValue()==value)
 		{
-			return itr;
+			break;
 		}
 		itr=(Data*) itr->getNext();
 	}
-	ListElement* where=(ListElement*) itr;
+	ListElement* where=(ListElement*) itr; //downcasting data class pointer to ListElement type pointer.
 	return where;
 }
 
@@ -132,19 +132,27 @@ void List::add(ListElement* neu,ListElement* where)
 
 void List::remove(ListElement *rem)
 {
-	ListElement* itr = start;
-	while(itr!=NULL)
+	if(rem->getValue()=="start" || rem->getValue()=="end") //base cass function will be binded in run time if pointer is of type ListElement
 	{
-		if(itr==rem)
+		cout<<"Sorry!  Cannot remove head or tail of list"<<endl;
+	}
+	else
+	{
+			ListElement* itr = start;
+		while(itr!=NULL)
 		{
-			itr->prev->next = rem->next;
-			itr->next->prev = rem->prev;
-			delete itr;
-			break;
+			if(itr==rem)
+			{
+				itr->prev->next = rem->next;
+				itr->next->prev = rem->prev;
+				delete itr;
+				break;
+			}
+			itr= itr->next;
 		}
-		itr= itr->next;
 	}
 }
+
 
 
 

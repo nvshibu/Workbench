@@ -16,11 +16,11 @@ int main()
 {
 	List dataList;
 
-	/*----------Printing the List--------------------*/
+	cout<<"-----Printing the List-----"<<endl;
 	dataList.print();
 	cout<<endl;
 
-	/*---------------Addition new element "hello" in the List-------------------*/
+	cout<<"-----Adding new element \"hello\" behind \"start\"-----"<<endl;
 	Data* newdata = new Data("hello");
 	ListElement* where = dataList.getNode("start");
 	if(where==NULL)
@@ -31,11 +31,10 @@ int main()
 	ListElement* neu;
 	neu = (ListElement*) newdata;
 	dataList.add(neu,where);
-	cout<<"After Addition of new Element "<<endl;
 	dataList.print();
 	cout<<endl;
 
-/*---------------Addition new element "world" in the List-------------------*/
+	cout<<"-----Adding new element \"world\" behind \"hello\"-----"<<endl;
 	newdata = new Data("world");
 	where = dataList.getNode("hello");
 	if(where==NULL)
@@ -45,11 +44,10 @@ int main()
 	}
 	neu = (ListElement*) newdata;
 	dataList.add(neu,where);
-	cout<<"After Addition of new Element "<<endl;
 	dataList.print();
 	cout<<endl;
 
-/*---------------Addition new element "virtual" in the List-------------------*/
+	cout<<"-----Adding new element \"virtual\" behind \"hello\"-----"<<endl;
 	newdata = new Data("virtual");
 	where = dataList.getNode("hello");
 	if(where==NULL)
@@ -59,11 +57,10 @@ int main()
 	}
 	neu = (ListElement*) newdata;
 	dataList.add(neu,where);
-	cout<<"After Addition of new Element "<<endl;
 	dataList.print();
 	cout<<endl;
 
-/*---------------Removing element "hello" from the List-------------------*/
+	cout<<"-----Removing element \"hello\" from the List-----"<<endl;
 	ListElement* rem = dataList.getNode("hello");
 	if(rem==NULL)
 	{
@@ -71,7 +68,17 @@ int main()
 		abort();
 	}
 	dataList.remove(rem);
-	cout<<"After Removal of Element \"hello\" "<<endl;
+	dataList.print();
+	cout<<endl;
+
+	cout<<"-----Removing element \"start\" from the List-----"<<endl;
+	rem = dataList.getNode("start");
+	if(rem==NULL)
+	{
+		cout<<"Failed to find element to remove"<<endl;
+		abort();
+	}
+	dataList.remove(rem);
 	dataList.print();
 	cout<<endl;
 
