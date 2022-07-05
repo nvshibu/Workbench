@@ -39,7 +39,7 @@ ListElement* ListElement::getPrev() const
 
 Data::Data(string value)
 {
-	this->value=value;
+	this->value = value;
 }
 
 string Data::getValue() const
@@ -47,7 +47,27 @@ string Data::getValue() const
 	return value;
 }
 
+IntData::IntData(int value)
+{
+	this->value = value;
+}
 
+string IntData::getValue() const
+{
+	string svalue = to_string(value);
+	return svalue;
+}
+
+DoubleData::DoubleData(double value)
+{
+	this->value = value;
+}
+
+string DoubleData::getValue() const
+{
+	string svalue = to_string(value);
+	return svalue;
+}
 
 /*--------------------------------------------List-----------------------------------*/
 

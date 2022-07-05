@@ -48,6 +48,26 @@ public:
 	
 };
 
+class IntData:public ListElement
+{
+	int value;
+public:
+	IntData(int value);
+	string getValue() const; //This function is binded when the pointer used is of type IntData*
+};
+
+class DoubleData:public ListElement
+{
+	double value;
+public:
+	DoubleData(double value);
+	string getValue() const; //This function is binded when the pointer used is of type IntData*
+};
+
+
+
+
+
 class List 
 {
 	ListElement *start;
@@ -64,6 +84,8 @@ public:
 	void removelast();
 	ListElement* getNode(string value) const;
 };
+
+
 
 
 #endif /* LIST_H_ */

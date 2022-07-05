@@ -96,6 +96,25 @@ int main()
 	dataList.print();
 	cout<<endl;
 
+	cout<<"-----Adding new integer element 100 before the end-----"<<endl;
+	IntData* intdata = new IntData(100);
+	neu = (ListElement*) intdata;
+	dataList.addbeforetail(neu);
+	dataList.print();
+	cout<<endl;
+
+	cout<<"-----Adding new double element 275.89 before the end-----"<<endl;
+	DoubleData* dobdata = new DoubleData(275.89);
+	neu = (ListElement*) dobdata;
+	dataList.addbeforetail(neu);
+	dataList.print();
+	cout<<endl;
+
+	cout<<"-----Removing last element from the List-----"<<endl;
+	dataList.removelast();
+	dataList.print();
+	cout<<endl;
+
 	cout<<"-----Removing last element from the List-----"<<endl;
 	dataList.removelast();
 	dataList.print();
